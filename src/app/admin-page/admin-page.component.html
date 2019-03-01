@@ -1,0 +1,71 @@
+<div class= "container-fluid">
+  <app-navbar></app-navbar>
+  <div class="container text-center">
+    <h1><u>Welcome to Admin Panel.</u></h1>
+    <h5>Here you can Create or Delete the Quiz.</h5>
+    <div class= "add card mb-2 mx-auto" (click)="onAddQuiz()">
+      <div class = "card-body">
+        <p class= "plus"><b>ADD</b></p>
+        
+      </div>
+    </div>
+   <div class="container" *ngIf="add">
+     <form>
+       <input type="text" class="form-control mb-2" placeholder="Topic" name="QuizTitle" value="" #topic required [(ngModel)]="QuizTitle" #top="ngModel" pattern="[a-zA-Z0-9]*$">
+       <button (click)="onQuizAdd()" class="btn btn-primary">Add Quiz</button>
+       <br>
+       <br>a
+       <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-6">
+          <p *ngFor="let vals of quizzes" class="card">
+        <b id="{{vals.qID}}" #quiz>  {{vals.qID}} {{vals.title}} </b>  
+    <button class="btn btn-primary d-block mb-2 " (click)= "onAdd(vals.qID)">Add Questions</button>
+    
+    <button id="{{vals.qID}}" (click)="onDelete(vals)" class= "btn btn-danger d-block mb-2">Delete Quiz</button>
+           </p>
+         </div>
+         <div class="col-md-3"></div>
+       </div>
+     </form>
+   </div> 
+
+   <div class="container rounded mb-5 fields pt-5 mt-5"  *ngIf="addQuestions">
+     <form>
+       <label><b>Question {{jj}}:</b></label>
+       <input type="text" class="mt-2 form-control mb-2" placeholder="Question" name="question" [(ngModel)]= 'question' required #ques>
+       <div class="row">
+         <div class="col-md-6 col-12">
+            <input type="text" class=" form-control mb-2" placeholder="Option A" name="opt1" [(ngModel)]= 'opt1' required #A>  
+         </div>
+         <div class="col-md-6 col-12">
+            <input type="text" class=" form-control mb-2" placeholder="Option B" name="opt2" [(ngModel)]= 'opt2' required #B>  
+         </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6 col-12">
+               <input type="text" class=" form-control mb-2" placeholder="Option C" name="opt3" [(ngModel)]= 'opt3' required #C>  
+            </div>
+            <div class="col-md-6 col-12">
+               <input type="text" class=" form-control mb-2" placeholder="Option D" name="opt4" [(ngModel)]= 'opt4' required #D>  
+            </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 col-12">
+                <input type="text" class="form-control mb-2" placeholder="Answer i.e, A B C D" name ="ans" [(ngModel)]='ans'
+                required pattern="[A-D]" #correct>
+              </div>
+              <div class="col-md-6 col-12">
+                <button type="button" class="btn btn-lg btn-primary mb-5 w-100 d-block" *ngIf="addMore" (click)="onSubmit(ques.value,A.value,B.value,C.value,D.value,correct.value,jj)">SAVE</button>
+              </div>
+            </div>
+     </form>
+
+   </div>
+  </div>
+
+  
+
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,31 @@
+.container-fluid{
+    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/itCjTBE/blue-tech-circuit-board-technology-animated-background-video-graphic-design-hd-1920x1080_ewva7rwie__F0000.png");
+    background-size:cover;
+    height: 100%;
+    background-position: center;
+    padding-bottom: 17%;
+}
+h1,h5 {
+    color: white;
+}
+.add{
+    width: 25%;
+    opacity: 0.8;
+    background-color: lightgray;
+
+}
+.add:hover{
+    opacity: 1;
+    background-color: white;
+}
+
+.plus{
+    font-size: 3vw;
+    color: black;
+}
+.card{
+    width:100%;
+}
+p{
+    font-size:2vw;
+}
