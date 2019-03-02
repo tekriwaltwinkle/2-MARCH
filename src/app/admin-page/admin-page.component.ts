@@ -25,21 +25,26 @@ quizzes;
   i=0;
   jj=1;
   ngOnInit() {
-    this.service.getQuiz().subscribe(val => console.log(val));
+    
   }
   onAddQuiz()
-  {
+  { 
     this.add=!this.add;
+    
   }
-  onQuizAdd()
-  {
+  onQuizAdd(topics: HTMLInputElement)
+  {//const modules={topic:topics.value};
     this.service.quiz = this.QuizTitle;
+    //this.service.module.push(modules);
+    console.log(this.service.module)
     this.service.addQuiz().subscribe(val => this.quizzes=val);
     console.log(this.quizzes);
   }
   onDelete(vals)
   {
     console.log(vals);
+    let index = this.quizzes.indexOf(vals);
+    this.quizzes.splice(index,1);
     this.service.delquiz(vals.qID).subscribe();
 
   }

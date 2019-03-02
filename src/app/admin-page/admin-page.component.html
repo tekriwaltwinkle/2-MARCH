@@ -11,8 +11,8 @@
     </div>
    <div class="container" *ngIf="add">
      <form>
-       <input type="text" class="form-control mb-2" placeholder="Topic" name="QuizTitle" value="" #topic required [(ngModel)]="QuizTitle" #top="ngModel" pattern="[a-zA-Z0-9]*$">
-       <button (click)="onQuizAdd()" class="btn btn-primary">Add Quiz</button>
+       <input type="text" class="form-control mb-2" placeholder="Topic" name="QuizTitle" value="" #topic required [(ngModel)]="QuizTitle" #top="ngModel" pattern="[a-zA-Z0-9]*$" >
+       <button (click)="onQuizAdd(topic)" class="btn btn-primary">Add Quiz</button>
        <br>
        <br>a
        <div class="row">

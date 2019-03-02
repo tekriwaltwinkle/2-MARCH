@@ -1,3 +1,43 @@
-<p>
-  student-page works!
-</p>
+<div class ="container-fluid">
+  <app-navbar></app-navbar>
+  <div class="container text-center mt-5">
+    <h1>Welcome to Student Panel</h1>
+    <h5>Select Your Quiz and Start Solving.</h5>
+    <div class="row mt-5 text-center">
+      
+  
+    <ng-container *ngFor="let aa of this.service.module; let j=index">
+      <div class="col-lg-3  mb-2">
+      
+          <div  class="new card mb-3 text-center" >
+              
+              <div class="card-body">
+                  <h4 class="card-text">{{aa.title}}</h4>
+                  
+                  <button  class="btn btn-primary d-block w-100 mb-2" (click)="onQuizStart(j)">Start Quiz</button>
+  
+              </div>
+            </div></div></ng-container>
+               </div>
+</div>  
+
+  </div>
+  <div class="Question rounded container mt-5 mb-5" *ngIf="showQuestions">
+    <div *ngFor="let que of this.service.questions">
+    <h4 class="mt-3">Question: {{que.text}}</h4>
+    <div class="container ml-2">
+    <input type="radio" class="form-check-input"  name="opt{{idd+1}}" value="A" #opt1> <label>(A) {{que.answer1}}</label><br>
+    <input type="radio" class="form-check-input"  name="opt{{idd+1}}" value="B" #opt2> <label>(B) {{que.answer2}}</label><br>
+    <input type="radio" class="form-check-input"  name="opt{{idd+1}}" value="C" #opt3> <label>(C) {{que.answer3}}</label><br>
+    <input type="radio" class="form-check-input"  name="opt{{idd+1}}" value="D" #opt4> <label>(D) {{que.answer4}}</label><br>
+    <button class="btn btn-lg btn-primary mb-5" #disable style="float:right"(click)="onSave(opt1,opt2,opt3,opt4,idd,disable)">Save</button>
+   </div>
+  </div>
+   <div class="pt-3">
+    <button class="mt-5  btn btn-lg btn-primary mx-auto d-block mb-5" data-toggle="modal"  (click)="onQuizSubmit()">Submit</button>
+   
+     </div>
+ </div>
+
+
+<app-footer></app-footer>
